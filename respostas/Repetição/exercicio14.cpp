@@ -1,22 +1,31 @@
-/*
- * No tabuleiro de xadrez, a casa na linha 1, coluna 1 é branca e as cores das casas se alternam em brancas e pretas. 
- * No xadrez tradicional, 8x8 a cas na linha 8 e coluna 8 também será branca.
- * Faça um programa que leia dois números, a linha e a coluna do tabuleiro e indique se a cor é preta ou branca.
- */
-
 #include <iostream>
 
 using namespace std;
 
 int main() {
-    int linha, coluna;
+    double Pa, Pb, Ta, Tb;
+    cin >> Pa >> Pb >> Ta >> Tb;
 
-    cin >> linha >> coluna;
+    int anos = 0;
 
-    if ((linha + coluna) % 2 == 0) {
-        cout << "BRANCA\n";
-    } else {
-        cout << "PRETA\n";
+    if (Pa < Pb && Ta > Tb) {
+        while (Pa <= Pb) {
+            Pa += Pa * (Ta / 100.0);
+            Pb += Pb * (Tb / 100.0);
+            anos++;
+        }
+        cout << anos << endl;
+    } 
+    else if (Pb < Pa && Tb > Ta) {
+        while (Pb <= Pa) {
+            Pa += Pa * (Ta / 100.0);
+            Pb += Pb * (Tb / 100.0);
+            anos++;
+        }
+        cout << anos << endl;
+    } 
+    else {
+        cout << 0 << endl;
     }
 
     return 0;
